@@ -1,0 +1,22 @@
+Notes de TD;
+Exercice 1:
+I.
+	lignes:
+	1- ouverture de la balise php pour signifier que le code suivant est à interpreter par le serveur;
+
+	2- on récupère un nombre aleatoire entre 1 et 6 pour pouvoir afficher une baniere differente;
+
+	3- si dans l'url un query a été utilisé avec comme nom "fleur", on récupère cette valeur sinon on recupere la valeur "rose" par défaut;
+
+	26- On affiche la date et l'heure renvoyé par le serveur
+
+	30- on utilise la valeur du nombre aléatoire généré a la ligne 2 pour afficher une baniere(ce nombre fait partie du nom de l'image);
+
+	48 => 55 - On va completer les nom des images par la valeur de la variable fleur precedement instanciée;
+
+II.
+	Quand on clique sur un item du menu, le lien contient un query avec une valeur différente pour "fleur" et c'est cette valeur qui va etre utilisée pour actualiser les différentes images;
+
+
+Exercice 2:
+III. Plus aucune image n'est affichée puisqu'on utilisait la valeur de la variable fleur transmise via les liens des menus

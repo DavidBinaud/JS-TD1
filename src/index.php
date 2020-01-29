@@ -1,15 +1,3 @@
-<?php
-  $num_baniere = rand(1,6);
-  $fleur = isset($_GET['fleur']) ? $_GET['fleur'] : "rose";
-  /*  remarque PHP : la structure "ternaire" ci-dessus
-      est exactement équivalente au code suivant :
-    if (isset($_GET['fleur'])) {
-      $fleur = $_GET['fleur'];
-    } else {
-      $fleur = "rose";
-    }
-  */
-?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,43 +11,48 @@
     <title>Galeries de fleurs</title>
   </head>
   <body>
-    <?php echo "<p>appel serveur à ".date('H:i:s')."</p>"; ?>
     <div id="page">
-      <img id="parametres" src="img/divers/parametres.png">
+      <img id="parametres" src="img/divers/parametres.png" onclick="changer_parametres()">
       <header>
-        <div id="baniere">
-            <img id="1" class="img_baniere visible" alt="baniere" src="img/baniere/baniere<?php echo $num_baniere; ?>.jpg">
+        <div id="baniere" onclick="stopper_defilement()" ondblclick="lancer_defilement()">
+          <img id="1" class="img_baniere visible" alt="baniere" src="img/baniere/baniere1.jpg">
+          <img id="2" class="img_baniere cachee" alt="baniere" src="img/baniere/baniere2.jpg">
+          <img id="3" class="img_baniere cachee" alt="baniere" src="img/baniere/baniere3.jpg">
+          <img id="4" class="img_baniere cachee" alt="baniere" src="img/baniere/baniere4.jpg">
+          <img id="5" class="img_baniere cachee" alt="baniere" src="img/baniere/baniere5.jpg">
+          <img id="6" class="img_baniere cachee" alt="baniere" src="img/baniere/baniere6.jpg">
         </div>
         <nav>
           <ul>
-            <li><a href="index.php?fleur=rose">rose</a></li>
-            <li><a href="index.php?fleur=hortensia">hortensia</a></li>
-            <li><a href="index.php?fleur=fruitier">fruitier</a></li>
-            <li><a href="index.php?fleur=autre">autre</a></li>
+            <li><a href="#" onclick="adapter_galerie('rose');">rose</a></li>
+            <li><a href="#" onclick="adapter_galerie('hortensia');">hortensia</a></li>
+            <li><a href="#" onclick="adapter_galerie('fruitier');">fruitier</a></li>
+            <li><a href="#" onclick="adapter_galerie('autre');">autre</a></li>
           </ul>
-        </nav>
+       </nav>
       </header>
       <main>
         <div class="titrePage">
-          <h1><span id="titre">Galerie de fleurs</span></h1>
+          <h1><span id="titre">Galerie de roses</span></h1>
         </div>
         <div class='galerie'>
           <div class='ligne_galerie'>
-            <img id='fleur1' class='img_galerie' alt='<?php echo $fleur; ?>1' title='<?php echo $fleur; ?>' src='img/fleurs/<?php echo $fleur; ?>/<?php echo $fleur; ?>1.jpg'>
-            <img id='fleur2' class='img_galerie' alt='<?php echo $fleur; ?>2' title='<?php echo $fleur; ?>' src='img/fleurs/<?php echo $fleur; ?>/<?php echo $fleur; ?>2.jpg'>
-            <img id='fleur3' class='img_galerie' alt='<?php echo $fleur; ?>3' title='<?php echo $fleur; ?>' src='img/fleurs/<?php echo $fleur; ?>/<?php echo $fleur; ?>3.jpg'>
+            <img id='fleur1' class='img_galerie' alt='rose1' title='rose' src='img/fleurs/rose/rose1.jpg'>
+            <img id='fleur2' class='img_galerie' alt='rose2' title='rose' src='img/fleurs/rose/rose2.jpg'>
+            <img id='fleur3' class='img_galerie' alt='rose3' title='rose' src='img/fleurs/rose/rose3.jpg'>
           </div>
           <div class='ligne_galerie'>
-            <img id='fleur4' class='img_galerie' alt='<?php echo $fleur; ?>4' title='<?php echo $fleur; ?>' src='img/fleurs/<?php echo $fleur; ?>/<?php echo $fleur; ?>4.jpg'>
-            <img id='fleur5' class='img_galerie' alt='<?php echo $fleur; ?>5' title='<?php echo $fleur; ?>' src='img/fleurs/<?php echo $fleur; ?>/<?php echo $fleur; ?>5.jpg'>
-            <img id='fleur6' class='img_galerie' alt='<?php echo $fleur; ?>6' title='<?php echo $fleur; ?>' src='img/fleurs/<?php echo $fleur; ?>/<?php echo $fleur; ?>6.jpg'>
+            <img id='fleur4' class='img_galerie' alt='rose4' title='rose' src='img/fleurs/rose/rose4.jpg'>
+            <img id='fleur5' class='img_galerie' alt='rose5' title='rose' src='img/fleurs/rose/rose5.jpg'>
+            <img id='fleur6' class='img_galerie' alt='rose6' title='rose' src='img/fleurs/rose/rose6.jpg'>
           </div>
         </div>
       </main>
-      <footer>
+      <footer onmouseover="construit_infobulle()" onmouseout="detruit_infobulle()">
         <p>JavaScript 2020</p>
         <p>TD1 - dynamiser les pages web</p>
       </footer>
     </div>
+      <script type="text/javascript" src="js/scripts_td1.js"></script>
   </body>
 </html>
